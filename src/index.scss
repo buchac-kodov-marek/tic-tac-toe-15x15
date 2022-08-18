@@ -1,0 +1,23 @@
+* {
+  font-family: "Itim", cursive;
+}
+
+.app {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+}
+.stvorec {
+  height: 6vh;
+  width: 6vh;
+  border: 1.5px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
