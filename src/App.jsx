@@ -137,6 +137,7 @@ class App extends React.Component {
     // +++
 
     const changeMode = () => {
+      console.log("click");
       this.setState((state) => {
         return {
           stvorce: state.stvorce,
@@ -240,8 +241,8 @@ class App extends React.Component {
             mode={this.state.darkMode}
           />
         </div>
+        <Mode changeMode={changeMode} mode={this.state.darkMode} />
         <div className="legenda">
-          <Mode changeMode={changeMode} />
           <Winner XjeNarade={this.state.XjeNarade} vyherca={setVyherca()} />
         </div>
       </div>

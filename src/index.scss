@@ -16,6 +16,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 20px;
   }
 }
 .row {
@@ -34,4 +35,21 @@
 }
 .O {
   color: blue;
+}
+.thememode {
+  position: absolute;
+  top: 10px;
+  left: 90vw;
+  display: flex;
+  align-items: center;
+  background-color: #363a3e;
+  border: 2px solid #4b5056;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 0.1rem 1rem 0.1rem 0.2rem;
+  cursor: pointer;
+  img {
+    display: inline-block;
+    height: 3rem;
+  }
 }
