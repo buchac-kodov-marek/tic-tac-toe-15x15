@@ -25,7 +25,6 @@ class App extends React.Component {
         Array(15).fill(null),
       ],
       XjeNarade: true,
-      vyherca: "nikto",
     };
   }
   render() {
@@ -98,12 +97,11 @@ class App extends React.Component {
     const handleClick = (riadok, poradie) => {
       let array0 = this.state.stvorce.slice();
       let array1 = this.state.stvorce.slice();
-      array1[riadok][poradie] = this.state.XjeNarade ? "X" : " O";
+      array1[riadok][poradie] = this.state.XjeNarade ? "X" : "O";
 
       this.setState({
         stvorce: (array0[riadok] = array1),
         XjeNarade: !this.state.XjeNarade,
-        vyherca: setVyherca(),
       });
 
       // console.log(stlpce());
@@ -116,7 +114,7 @@ class App extends React.Component {
       if (winner === "X" || winner === "O") {
         return winner;
       } else {
-        return this.state.vyherca;
+        return "nikto";
       }
     };
 
@@ -161,10 +159,7 @@ class App extends React.Component {
         </div>
         <div className="legenda">
           <Mode />
-          <Winner
-            XjeNarade={this.state.XjeNarade}
-            vyherca={this.state.vyherca}
-          />
+          <Winner XjeNarade={this.state.XjeNarade} vyherca={setVyherca()} />
         </div>
       </div>
     );
