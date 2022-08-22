@@ -23,7 +23,11 @@ const Winner = ({ XjeNarade, vyherca }) => {
   // }
 
   if (vyherca !== "nikto") {
-    return <p>Vyhral hráč {vyherca}</p>;
+    return (
+      <p>
+        Vyhral hráč <span className={vyherca}>{vyherca}</span>
+      </p>
+    );
   } else if (XjeNarade) {
     return (
       <p>

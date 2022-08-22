@@ -25,6 +25,7 @@ class App extends React.Component {
         Array(15).fill(null),
       ],
       XjeNarade: true,
+      darkMode: true,
     };
   }
   render() {
@@ -118,47 +119,129 @@ class App extends React.Component {
       }
     };
 
+    // +++
+    //     style
+    // +++
+
+    const darkMode = {
+      backgroundColor: "rgb(48, 48, 48)",
+      color: "white",
+    };
+    const lightMode = {
+      backgroundColor: "white",
+      color: "rgb(48, 48, 48)",
+    };
+
+    // +++
+    // change mode
+    // +++
+
+    const changeMode = () => {
+      this.setState((state) => {
+        return {
+          stvorce: state.stvorce,
+          XjeNarade: state.XjeNarade,
+          darkMode: !state.darkMode,
+        };
+      });
+    };
+
     return (
-      <div className="app">
+      <div className="app" style={this.state.darkMode ? darkMode : lightMode}>
         <div className="tictactoe">
-          <Row stav={this.state.stvorce[0]} handleClick={handleClick} row={0} />
-          <Row stav={this.state.stvorce[1]} handleClick={handleClick} row={1} />
-          <Row stav={this.state.stvorce[2]} handleClick={handleClick} row={2} />
-          <Row stav={this.state.stvorce[3]} handleClick={handleClick} row={3} />
-          <Row stav={this.state.stvorce[4]} handleClick={handleClick} row={4} />
-          <Row stav={this.state.stvorce[5]} handleClick={handleClick} row={5} />
-          <Row stav={this.state.stvorce[6]} handleClick={handleClick} row={6} />
-          <Row stav={this.state.stvorce[7]} handleClick={handleClick} row={7} />
-          <Row stav={this.state.stvorce[8]} handleClick={handleClick} row={8} />
-          <Row stav={this.state.stvorce[9]} handleClick={handleClick} row={9} />
+          <Row
+            stav={this.state.stvorce[0]}
+            handleClick={handleClick}
+            row={0}
+            mode={this.state.darkMode}
+          />
+          <Row
+            stav={this.state.stvorce[1]}
+            handleClick={handleClick}
+            row={1}
+            mode={this.state.darkMode}
+          />
+          <Row
+            stav={this.state.stvorce[2]}
+            handleClick={handleClick}
+            row={2}
+            mode={this.state.darkMode}
+          />
+          <Row
+            stav={this.state.stvorce[3]}
+            handleClick={handleClick}
+            row={3}
+            mode={this.state.darkMode}
+          />
+          <Row
+            stav={this.state.stvorce[4]}
+            handleClick={handleClick}
+            row={4}
+            mode={this.state.darkMode}
+          />
+          <Row
+            stav={this.state.stvorce[5]}
+            handleClick={handleClick}
+            row={5}
+            mode={this.state.darkMode}
+          />
+          <Row
+            stav={this.state.stvorce[6]}
+            handleClick={handleClick}
+            row={6}
+            mode={this.state.darkMode}
+          />
+          <Row
+            stav={this.state.stvorce[7]}
+            handleClick={handleClick}
+            row={7}
+            mode={this.state.darkMode}
+          />
+          <Row
+            stav={this.state.stvorce[8]}
+            handleClick={handleClick}
+            row={8}
+            mode={this.state.darkMode}
+          />
+          <Row
+            stav={this.state.stvorce[9]}
+            handleClick={handleClick}
+            row={9}
+            mode={this.state.darkMode}
+          />
           <Row
             stav={this.state.stvorce[10]}
             handleClick={handleClick}
             row={10}
+            mode={this.state.darkMode}
           />
           <Row
             stav={this.state.stvorce[11]}
             handleClick={handleClick}
             row={11}
+            mode={this.state.darkMode}
           />
           <Row
             stav={this.state.stvorce[12]}
             handleClick={handleClick}
             row={12}
+            mode={this.state.darkMode}
           />
           <Row
             stav={this.state.stvorce[13]}
             handleClick={handleClick}
             row={13}
+            mode={this.state.darkMode}
           />
           <Row
             stav={this.state.stvorce[14]}
             handleClick={handleClick}
             row={14}
+            mode={this.state.darkMode}
           />
         </div>
         <div className="legenda">
-          <Mode />
+          <Mode changeMode={changeMode} />
           <Winner XjeNarade={this.state.XjeNarade} vyherca={setVyherca()} />
         </div>
       </div>

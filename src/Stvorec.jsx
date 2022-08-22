@@ -1,9 +1,16 @@
 import React from "react";
 
-const Stvorec = ({ value, handleClick, row, poradie }) => {
+const Stvorec = ({ value, handleClick, row, poradie, mode }) => {
+  const darkMode = {
+    border: "1.5px solid white",
+  };
+  const lightMode = {
+    border: "1.5px solid rgb(48, 48, 48)",
+  };
   return (
     <div
-      className="stvorec"
+      style={mode ? darkMode : lightMode}
+      className={`stvorec ${value !== null && value}`}
       onClick={() => {
         handleClick(row, poradie);
       }}

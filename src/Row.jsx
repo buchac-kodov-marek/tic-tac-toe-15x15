@@ -1,7 +1,7 @@
 import React from "react";
 import Stvorec from "./Stvorec";
 
-const Row = ({ stav, handleClick, row }) => {
+const Row = ({ stav, handleClick, row, mode }) => {
   const riadok = stav.map((stvorcek, index) => {
     return (
       <Stvorec
@@ -10,6 +10,7 @@ const Row = ({ stav, handleClick, row }) => {
         handleClick={handleClick}
         row={row}
         poradie={index}
+        mode={mode}
       />
     );
   });
