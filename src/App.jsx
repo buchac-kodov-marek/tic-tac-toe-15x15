@@ -98,13 +98,16 @@ class App extends React.Component {
     const handleClick = (riadok, poradie) => {
       let array0 = this.state.stvorce.slice();
       let array1 = this.state.stvorce.slice();
-      array1[riadok][poradie] = this.state.XjeNarade ? "X" : "O";
 
-      this.setState({
-        stvorce: (array0[riadok] = array1),
-        XjeNarade: !this.state.XjeNarade,
-      });
+      if (array1[riadok][poradie] === null) {
+        array1[riadok][poradie] = this.state.XjeNarade ? "X" : "O";
 
+        this.setState({
+          stvorce: (array0[riadok] = array1),
+          XjeNarade: !this.state.XjeNarade,
+          darkMode: this.state.darkMode,
+        });
+      }
       // console.log(stlpce());
     };
     // +++
