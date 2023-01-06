@@ -29,6 +29,8 @@ class App extends React.Component {
     };
   }
   render() {
+    let mojavar = this.state.stvorce;
+
     const stlpce2 = (i) => {
       return this.state.stvorce.map((prvok) => {
         return prvok[i];
@@ -42,6 +44,68 @@ class App extends React.Component {
         return stlpce2(i);
       });
     };
+
+    const Bullish = () => {
+      let result = [];
+      let counter = 0;
+      while (result.length < 15) {
+        let innerArray = [];
+        for (let i = counter; i >= 0; i--) {
+          innerArray.push(mojavar[i][counter - i]);
+        }
+        result.push(innerArray);
+        counter++;
+      }
+
+      counter = 14;
+      let second = 0;
+      while (result.length < 29) {
+        let innerArray = [];
+        second++;
+        let second2 = second;
+        for (let i = 0; i < counter; i++) {
+          innerArray.push(mojavar[14 - i][second2]);
+          // innerArray.push(`${14 - i}-${second2}`);
+          second2++;
+        }
+        result.push(innerArray);
+        counter--;
+      }
+      return result;
+    };
+
+    const Bearish = () => {
+      let result = [];
+      let counter = 0;
+      while (result.length < 15) {
+        let innerArray = [];
+        for (let i = counter; i >= 0; i--) {
+          innerArray.push(mojavar[14 - i][counter - i]);
+          // innerArray.push(`${14 - i}-${counter - i}`);
+        }
+        result.push(innerArray);
+        counter++;
+      }
+
+      counter = 14;
+
+      let second = 0;
+      while (result.length < 29) {
+        let innerArray = [];
+        second++;
+        let second2 = second;
+        for (let i = 0; i < counter; i++) {
+          innerArray.push(mojavar[i][second2]);
+          // innerArray.push(`${i}-${second2}`);
+          second2++;
+        }
+        result.push(innerArray);
+        counter--;
+      }
+      return result;
+    };
+
+    console.log(Bearish());
 
     // +++
     // pocitadlo
@@ -81,7 +145,12 @@ class App extends React.Component {
 
     //  vyherca
     //  +++
-    const vsetkyArrays = [...this.state.stvorce.slice(), ...stlpce()];
+    const vsetkyArrays = [
+      ...this.state.stvorce.slice(),
+      ...stlpce(),
+      ...Bullish(),
+      ...Bearish(),
+    ];
 
     const vyherca = vsetkyArrays.map((prvky) => {
       return pocitadlo(prvky, 4);
@@ -153,37 +222,7 @@ class App extends React.Component {
 
     // }
     // Bullish();
-    let mojavar = this.state.stvorce;
-    const Bullish = () => {
-      let result = [];
-      let counter = 0;
-      while (result.length < 15) {
-        let innerArray = [];
-        for (let i = counter; i >= 0; i--) {
-          innerArray.push(mojavar[i][counter - i]);
-        }
-        result.push(innerArray);
-        counter++;
-      }
 
-      counter = 14;
-      let second = 0;
-      while (result.length < 29) {
-        let innerArray = [];
-        second++;
-        let second2 = second;
-        for (let i = 0; i < counter; i++) {
-          innerArray.push(mojavar[14 - i][second2]);
-          // innerArray.push(`${14 - i}-${second2}`);
-          second2++;
-        }
-        result.push(innerArray);
-        counter--;
-      }
-      return result;
-    };
-
-    console.log(Bullish());
     return (
       <div className="app" style={this.state.darkMode ? darkMode : lightMode}>
         <div className="tictactoe">

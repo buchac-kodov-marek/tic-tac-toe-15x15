@@ -2,10 +2,10 @@ import React from "react";
 
 const Stvorec = ({ value, handleClick, row, poradie, mode }) => {
   const darkMode = {
-    border: "1.5px solid white",
+    border: "1.7px solid white",
   };
   const lightMode = {
-    border: "1.5px solid rgb(48, 48, 48)",
+    border: "1.7px solid rgb(48, 48, 48)",
   };
   return (
     <div
