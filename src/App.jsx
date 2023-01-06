@@ -105,8 +105,6 @@ class App extends React.Component {
       return result;
     };
 
-    console.log(Bearish());
-
     // +++
     // pocitadlo
     // +++
