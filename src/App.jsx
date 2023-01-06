@@ -149,7 +149,41 @@ class App extends React.Component {
         };
       });
     };
+    // const Bullish = () => {
 
+    // }
+    // Bullish();
+    let mojavar = this.state.stvorce;
+    const Bullish = () => {
+      let result = [];
+      let counter = 0;
+      while (result.length < 15) {
+        let innerArray = [];
+        for (let i = counter; i >= 0; i--) {
+          innerArray.push(mojavar[i][counter - i]);
+        }
+        result.push(innerArray);
+        counter++;
+      }
+
+      counter = 14;
+      let second = 0;
+      while (result.length < 29) {
+        let innerArray = [];
+        second++;
+        let second2 = second;
+        for (let i = 0; i < counter; i++) {
+          innerArray.push(mojavar[14 - i][second2]);
+          // innerArray.push(`${14 - i}-${second2}`);
+          second2++;
+        }
+        result.push(innerArray);
+        counter--;
+      }
+      return result;
+    };
+
+    console.log(Bullish());
     return (
       <div className="app" style={this.state.darkMode ? darkMode : lightMode}>
         <div className="tictactoe">
