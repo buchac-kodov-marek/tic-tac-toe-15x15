@@ -158,6 +158,17 @@ class App extends React.Component {
     });
     // console.log(winner);
 
+     // +++
+    // end of game
+    // +++
+    
+    let setVyherca = () => {
+      if (winner === "X" || winner === "O") {
+        return winner;
+      } else {
+        return "nikto";
+      }
+    };
     // +++
     // handleclikk
     // +++
@@ -168,6 +179,10 @@ class App extends React.Component {
 
       if (array1[riadok][poradie] === null) {
         array1[riadok][poradie] = this.state.XjeNarade ? "X" : "O";
+        if(setVyherca() !== "nikto"){
+          alert("Hra skončila, vyhral hráč " + winner);
+          return;
+        }
 
         this.setState({
           stvorce: (array0[riadok] = array1),
@@ -177,17 +192,8 @@ class App extends React.Component {
       }
       // console.log(stlpce());
     };
-    // +++
-    // end of game
-    // +++
+   
 
-    let setVyherca = () => {
-      if (winner === "X" || winner === "O") {
-        return winner;
-      } else {
-        return "nikto";
-      }
-    };
 
     // +++
     //     style
