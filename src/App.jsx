@@ -2,6 +2,7 @@ import React from "react";
 import Row from "./Row";
 import Mode from "./Mode";
 import Winner from "./Winner";
+import Reset from "./Reset";
 
 class App extends React.Component {
   constructor(props) {
@@ -29,6 +30,30 @@ class App extends React.Component {
     };
   }
   render() {
+const resetGame =() =>{
+  this.setState({
+    stvorce: [
+      Array(15).fill(null),
+      Array(15).fill(null),
+      Array(15).fill(null),
+      Array(15).fill(null),
+      Array(15).fill(null),
+      Array(15).fill(null),
+      Array(15).fill(null),
+      Array(15).fill(null),
+      Array(15).fill(null),
+      Array(15).fill(null),
+      Array(15).fill(null),
+      Array(15).fill(null),
+      Array(15).fill(null),
+      Array(15).fill(null),
+      Array(15).fill(null),
+    ],
+    XjeNarade: true,
+    darkMode: true,
+  });
+}
+
     let mojavar = this.state.stvorce;
 
     const stlpce2 = (i) => {
@@ -223,12 +248,18 @@ class App extends React.Component {
       });
     };
     // const Bullish = () => {
-
-    // }
-    // Bullish();
-
-    return (
-      <div className="app" style={this.state.darkMode ? darkMode : lightMode}>
+      
+      // }
+      // Bullish();
+      
+      return (
+        <div className="app" style={this.state.darkMode ? darkMode : lightMode}>
+        <header>
+        <div className="hidden"></div>
+        <h1>Tic Tac Toe 15x15</h1>
+      <Mode changeMode={changeMode} mode={this.state.darkMode} />
+        </header>
+        <div className="m_cont">
         <div className="tictactoe">
           <Row
             stav={this.state.stvorce[0]}
@@ -321,9 +352,13 @@ class App extends React.Component {
             mode={this.state.darkMode}
           />
         </div>
-        <Mode changeMode={changeMode} mode={this.state.darkMode} />
+        <div className="right_cont">
+
         <div className="legenda">
           <Winner XjeNarade={this.state.XjeNarade} vyherca={setVyherca()} />
+        </div>
+          <Reset mode={this.state.darkMode}  resetGame={resetGame}/>
+          </div>
         </div>
       </div>
     );
